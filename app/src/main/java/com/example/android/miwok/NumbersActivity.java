@@ -64,6 +64,15 @@ public class NumbersActivity extends AppCompatActivity {
                 mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceId());
                 //start audio file
                 mMediaPlayer.start();
+
+                //setup a listener on the media player, so that we can stop and release the
+                //media player once the sound has finished playing
+                mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mediaPlayer) {
+                        releaseMediaPlayer();
+                    }
+                });
             }
 
         });
