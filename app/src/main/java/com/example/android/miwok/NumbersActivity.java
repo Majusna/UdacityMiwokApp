@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -52,13 +53,20 @@ public class NumbersActivity extends AppCompatActivity {
         // 1 argument, which is the {@link ArrayAdapter} with the variable name itemsAdapter.
         listView.setAdapter(adapter);
 
+        //set a click listener to play the audio when the list item is clicked on
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                // get the {@link Word} object at the given position the user clicked on
                 Word word = words.get(position);
+                // create and setup MediaPlayer for the audio resource associated
+                //with the current word
                 mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceId());
+               //start audio file
                 mMediaPlayer.start();
             }
         });
+
     }
+
 }
