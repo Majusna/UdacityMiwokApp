@@ -62,10 +62,10 @@ public class NumbersActivity extends AppCompatActivity {
                 // create and setup MediaPlayer for the audio resource associated
                 //with the current word
                 mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceId());
-               //start audio file
+                //start audio file
                 mMediaPlayer.start();
             }
-            
+
         });
 
     }
