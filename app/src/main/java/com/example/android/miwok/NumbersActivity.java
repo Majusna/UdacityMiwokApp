@@ -22,7 +22,7 @@ public class NumbersActivity extends AppCompatActivity {
             releaseMediaPlayer();
         }
     };
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +68,9 @@ public class NumbersActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // get the {@link Word} object at the given position the user clicked on
                 Word word = words.get(position);
+                //release the media player if it currently exist because we are about to
+                //play a different sound file
+                releaseMediaPlayer();
                 // create and setup MediaPlayer for the audio resource associated
                 //with the current word
                 mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceId());
